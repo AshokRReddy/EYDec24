@@ -1,0 +1,127 @@
+package ICICFlow;
+
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.*;
+import org.openqa.selenium.support.ui.Select;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class ICICClass {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://loan.icicibank.com/asset-portal-all/check-eligibility?loanType=al&ITM_nli_cms_AL_auto_loan_index_intro_bookcarbtn&WT.mc_id=Desk_OAPN_cms_cl_index_btn_applynow&_gl=1*15uc907*_ga*Mzk1NTQ3NjcyLjE2NDgwMzY3ODI.*_ga_SKB78GHTFV*MTY1NDEwNTc1My42Ny4xLjE2NTQxMDY2MjUuNjA.&_ga=2.3850736.1983207386.1676016024-1669664916.1645776058");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		String header = driver.findElement(By.xpath("//span[@class='moduleName']")).getText();
+		
+		System.out.println(header);
+		// Select type of loan
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[@id='carRelbtn']")).click();
+		driver.findElement(By.xpath("//div[@class='dropdown-menu open']/ul/li/a/span[text()='New Car Loan']")).click();
+		Thread.sleep(3000);
+
+		WebElement mobileNum = driver.findElement(By.xpath("//input[@id='MOBILENUM']"));
+		mobileNum.click();
+		mobileNum.sendKeys("8970123456");
+		driver.findElement(By.xpath("//input[@name='CUSTFIRSTNAME']")).sendKeys("Ashok");
+		driver.findElement(By.xpath("//input[@name='CUSTLASTNAME']")).sendKeys("Reddy");
+		driver.findElement(By.xpath("//input[@id='CUSTCOMMUCITY']")).click();
+		driver.findElement(By.xpath("//input[@id='CUSTCOMMUCITY']")).sendKeys("BENGALURU");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='CUSTCOMMUCITY']")).sendKeys(Keys.CONTROL, Keys.END, Keys.ENTER);
+		Thread.sleep(3000);
+//		driver.findElement(By.xpath("//input[@id='CUSTCOMMUCITY']")).sendKeys(Keys.ENTER);
+
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[@id='residancebtn']")).click();
+		driver.findElement(By.xpath("//div[@class='dropdown-menu open']/ul/li/a/span[text()='Owned']")).click();
+		Thread.sleep(3000);
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[@id='yrspan_mvce']")).click();
+		driver.findElement(By.xpath("//div[@class='dropdown-menu open']/ul/li/a/span[text()='2023']")).click();
+		Thread.sleep(3000);
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[@id='mnthspan']")).click();
+		driver.findElement(By.xpath("//div[@class='dropdown-menu open']/ul/li/a/span[text()='Apr']")).click();
+		Thread.sleep(3000);
+
+		
+		driver.findElement(By.xpath("//input[@id='CAR_MODEL_NAME']")).click();
+		driver.findElement(By.xpath("//input[@id='CAR_MODEL_NAME']")).sendKeys("Honda City");
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath("//input[@id='DATEOFBIRTH']")).click();
+		
+		driver.findElement(By.xpath("//input[@id='DATEOFBIRTH']")).sendKeys("10/12/1991");
+		driver.findElement(By.xpath("//input[@id='CITY_NAME']")).click();
+		driver.findElement(By.xpath("//input[@id='CITY_NAME']")).sendKeys("Bengaluru");
+				
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[@id='selSalspan']")).click();
+		driver.findElement(By.xpath("//div[@class='dropdown-menu open']/ul/li/a/span[text()='Self Employed']")).click();
+		Thread.sleep(3000);
+		
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='NAME_OF_BUSSINESS']")).click();
+		driver.findElement(By.xpath("//input[@id='NAME_OF_BUSSINESS']")).sendKeys("Cab business");
+		Thread.sleep(3000);
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[@id='Nobspan']")).click();
+		driver.findElement(By.xpath("//div[@class='dropdown-menu open']/ul/li/a/span[text()='TRADING']")).click();
+		Thread.sleep(3000);
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[@id='yrspan_sdb']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/div/div[2]/div/div[4]/div/div/div[22]/div[1]/div/div[2]/div/div/ul/li[4]/a/span[1]")).click();
+		Thread.sleep(3000);
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[@id='mnthspan_1']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/div/div[2]/div/div[4]/div/div/div[22]/div[1]/div/div[3]/div/div/ul/li[3]/a")).click();
+		Thread.sleep(3000);
+//		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[@id='totalworkexp_1']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/div/div[2]/div/div[4]/div/div/div[22]/div[2]/div/div/div/ul/li[5]/a/span[1]")).click();
+		Thread.sleep(3000);
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='LATEST_Y_GROSS_T_INC']")).click();
+		driver.findElement(By.xpath("//input[@id='LATEST_Y_GROSS_T_INC']")).sendKeys("200000");
+		Thread.sleep(3000);
+		
+		
+//		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='TOTAL_CURR_EMI_PAID']")).click();
+		driver.findElement(By.xpath("//input[@id='TOTAL_CURR_EMI_PAID']")).sendKeys("50000");
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//button[@id='eligibility-btn']")).click();
+		Thread.sleep(3000);
+		
+		System.out.println(driver.getTitle());
+		String message = driver.findElement(By.xpath("//div[@class='text-center clearfix']/p")).getText();
+		System.out.println("Submitted form :"+message);
+		
+		String message1 = driver.findElement(By.xpath("//div[@class='text-center clearfix']/p[2]")).getText();
+		System.out.println("message displayed :"+message1);
+		
+		
+		
+	}
+	
+
+}
